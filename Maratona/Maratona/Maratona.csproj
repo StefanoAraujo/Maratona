@@ -41,6 +41,7 @@
     <Compile Include="Authentication\IAuthentication.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Models\AuthClient.cs" />
+    <Compile Include="Models\FacebookUser.cs" />
     <Compile Include="Models\Tarefa.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -28,6 +28,6 @@ namespace Maratona.Helpers
 
         public static bool IsLoggedIn = !string.IsNullOrWhiteSpace(UserId);
 
-        public static AuthClient FacebookClient { get; set; }
+        public static FacebookUser FacebookUser { get; set; }
     }
 }

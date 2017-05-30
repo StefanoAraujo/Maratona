@@ -27,11 +27,9 @@ namespace Maratona.ViewModels
             if (!Settings.IsLoggedIn)
                 await azureService.LoginAsync();
 
-            AuthClient facebookUser = await azureService.GetUserAsync();
-            var user = UsuarioService.ClaimsParaUsuario(facebookUser);
-
+            FacebookUser facebookUser = await azureService.GetUserAsync();
+            var user = UsuarioService.FacebookParaUsuario(facebookUser);
             await _navigation.PushAsync(new MainPage(user));
-
             RemoveLoginPage();
         }
 
@@ -39,6 +37,7 @@ namespace Maratona.ViewModels
         {
             Usuario usuario = UsuarioService.NovoUsuario();
             await _navigation.PushAsync(new MainPage(usuario));
+            RemoveLoginPage();
         }
 
         void RemoveLoginPage()

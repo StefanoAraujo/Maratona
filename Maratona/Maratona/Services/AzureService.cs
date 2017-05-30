@@ -6,6 +6,9 @@ using Maratona.Helpers;
 using System;
 using System.Collections.Generic;
 using Maratona.Models;
+using System.Linq;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Maratona.Services.AzureService))]
 namespace Maratona.Services
@@ -55,14 +58,20 @@ namespace Maratona.Services
             }
         }
 
-        public async Task<AuthClient> GetUserAsync()
+        public async Task<FacebookUser> GetUserAsync()
         {
             try
             {
                 List<AuthClient> user = await Client.InvokeApiAsync<List<AuthClient>>("/.auth/me");
-                Settings.FacebookClient = user[0];
+                string acessToken = user[0].access_token;
 
-                return user[0];
+                var facebookUrl = $"https://graph.facebook.com/v2.9/me?fields=id%2Cname%2Cbirthday%2Cemail%2Cfirst_name%2Cgender%2Clast_name%2Cpicture%7Burl%2Cheight%2Cwidth%2Cis_silhouette%7D&access_token={acessToken}";
+                var httpClient = new HttpClient();
+                var userJson = await httpClient.GetStringAsync(facebookUrl);
+                var facebookProfile = JsonConvert.DeserializeObject<FacebookUser>(userJson);
+
+                Settings.FacebookUser = facebookProfile;
+                return facebookProfile;
             }
             catch (Exception e)
             {

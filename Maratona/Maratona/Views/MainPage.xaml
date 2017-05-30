@@ -9,6 +9,7 @@
                 VerticalOptions="Center"
                 FontSize="Large"/>
 
+            
         <Label Text="{Binding User.NomeCompleto}"
                Style="{StaticResource DefaultLabel}"/>
         <Label Text="{Binding User.Email}"

@@ -13,14 +13,33 @@ namespace Maratona.Services
 
             Usuario User = new Usuario();
 
-            User.NomeCompleto = facebookUser.UserClaims.FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")).Value;
-            User.Nome = facebookUser.UserClaims.FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname")).Value;
-            User.Sobrenome = facebookUser.UserClaims.FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname")).Value;
-            User.Sexo = facebookUser.UserClaims.FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/gender")).Value;
-            User.Email = facebookUser.UserClaims.FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress")).Value;
-            User.Nascimento = facebookUser.UserClaims.FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/dateofbirth")).Value;
+            User.NomeCompleto = facebookUser.user_claims.FirstOrDefault(c => c.typ.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")).val;
+            User.Nome = facebookUser.user_claims.FirstOrDefault(c => c.typ.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname")).val;
+            User.Sobrenome = facebookUser.user_claims.FirstOrDefault(c => c.typ.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname")).val;
+            User.Sexo = facebookUser.user_claims.FirstOrDefault(c => c.typ.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/gender")).val;
+            User.Email = facebookUser.user_claims.FirstOrDefault(c => c.typ.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress")).val;
+            User.Nascimento = facebookUser.user_claims.FirstOrDefault(c => c.typ.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/dateofbirth")).val;
 
             return User;
+        }
+
+        public static Usuario FacebookParaUsuario(FacebookUser facebookUser)
+        {
+            if (facebookUser == null)
+                return null;
+
+            Usuario user = new Usuario()
+            {
+                NomeCompleto = facebookUser.name,
+                Nome = facebookUser.first_name,
+                Sobrenome = facebookUser.last_name,
+                Email = facebookUser.email,
+                Sexo = facebookUser.gender,
+                Nascimento = facebookUser.birthday,
+                ImagemSource = facebookUser.picture.data.url
+            };
+
+            return user;
         }
 
         public static Usuario NovoUsuario()

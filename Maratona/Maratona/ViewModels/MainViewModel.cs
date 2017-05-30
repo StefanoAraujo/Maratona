@@ -30,11 +30,6 @@ namespace Maratona.ViewModels
             MinhasTarefasCommand = new Command(ExecuteMinhasTarefasCommand);
         }
 
-        private void ExecuteRecarregarDadosCommand()
-        {
-            User = UsuarioService.ClaimsParaUsuario(Settings.FacebookClient);
-        }
-
         private async void ExecuteMinhasTarefasCommand()
         {
             await _navigation.PushAsync(new ListaTarefaPage(User.Tarefas));
