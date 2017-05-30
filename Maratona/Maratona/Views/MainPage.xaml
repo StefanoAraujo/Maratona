@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maratona.Views.MainPage">
+
+    <ContentPage.Resources>
+        
+    </ContentPage.Resources>
+    
+    <StackLayout HorizontalOptions="Center"
+                 Padding="5,10,5,10">
+        <Label  Text="Dados do Facebook"
+                VerticalOptions="Center"
+                FontSize="Large"/>
+
+        <Label Text="{Binding User.NomeCompleto}"
+               Style="{StaticResource DefaultLabel}"/>
+        <Label Text="{Binding User.Email}"
+               Style="{StaticResource DefaultLabel}"/>
+        <Label Text="{Binding User.Nascimento}"
+               Style="{StaticResource DefaultLabel}"/>
+        <Label Text="{Binding User.Sexo}"
+               Style="{StaticResource DefaultLabel}"/>
+
+        <Button Text="Minhas Tarefas"
+                Command="{Binding MinhasTarefasCommand}" 
+                VerticalOptions="EndAndExpand"/>
+
+    </StackLayout>
+    
+</ContentPage>

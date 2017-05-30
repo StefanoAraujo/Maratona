@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maratona.Views.NovaTarefaPage">
+
+    <StackLayout VerticalOptions="Start">
+        <StackLayout Orientation="Horizontal">
+            <Entry Text="{Binding AddTarefa.Nome}" Placeholder="Nome" HorizontalOptions="FillAndExpand"/>
+            <Entry Text="{Binding AddTarefa.Local}" Placeholder="Local" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <Entry Text="{Binding AddTarefa.Descricao}" Placeholder="Descrição" HorizontalOptions="FillAndExpand"/>
+        <DatePicker HorizontalOptions="FillAndExpand" BindingContext="{Binding AddTarefa.Data}"/>
+        <Button Text="Adicionar" HorizontalOptions="FillAndExpand" Command="{Binding AddTarefaCommand}"/>
+    </StackLayout>
+
+</ContentPage>

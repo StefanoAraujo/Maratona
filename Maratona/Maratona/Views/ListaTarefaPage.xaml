@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maratona.Views.ListaTarefaPage">
+
+    <ScrollView> 
+        <ListView x:Name="lvwTarefas" ItemsSource="{Binding ListaTarefas}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Margin="10">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding Nome}" FontSize="Medium" TextColor="Black"/>
+                                <Label Text="{Binding Descricao}" FontSize="Small" TextColor="Gray"/>
+                            </StackLayout>
+                            <Button Image="delete.png" WidthRequest="50" Clicked="OnDeleteClicked"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+
+</ContentPage>
