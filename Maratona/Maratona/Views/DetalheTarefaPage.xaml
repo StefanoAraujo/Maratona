@@ -9,17 +9,15 @@
                 Android="10, 0, 10, 0"/>
     </ContentPage.Padding>
 
-    <StackLayout>
-        <Entry  Text="{Binding Nome}"
-                HorizontalOptions="FillAndExpand"/>
-        <Entry  Text="{Binding Descricao}"
-                HorizontalOptions="FillAndExpand"/>
-        <Entry  Text="{Binding Local}"
-                HorizontalOptions="FillAndExpand"/>
-        <DatePicker BindingContext="{Binding Data}" 
-                    HorizontalOptions="FillAndExpand"/>
-        <Button Text="Atualizar"
-                HorizontalOptions="FillAndExpand"/>
+    <StackLayout VerticalOptions="Center">
+        <Label Text="{Binding Nome}" 
+               Style="{StaticResource DefaultLabel}"/>
+        <Label Text="{Binding Descricao}" 
+               Style="{StaticResource DefaultLabel}"/>
+        <Label Text="{Binding Local}" 
+               Style="{StaticResource DefaultLabel}"/>
+        <Label Text="{Binding Data, StringFormat='dd/MM/yyyy'}" 
+               Style="{StaticResource DefaultLabel}"/>
     </StackLayout>
     
 </ContentPage>

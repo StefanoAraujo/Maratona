@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Maratona
 {
@@ -13,7 +8,10 @@ namespace Maratona
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Maratona.Views.LoginPage());
+            //if(Settings.IsLoggedIn)
+            //    MainPage = new NavigationPage(new Maratona.Views.MainPage(null));
+            //else
+                MainPage = new NavigationPage(new Maratona.Views.LoginPage());
         }
 
         protected override void OnStart()

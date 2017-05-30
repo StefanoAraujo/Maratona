@@ -5,11 +5,11 @@
 
     <StackLayout VerticalOptions="Start">
         <StackLayout Orientation="Horizontal">
-            <Entry Text="{Binding AddTarefa.Nome}" Placeholder="Nome" HorizontalOptions="FillAndExpand"/>
-            <Entry Text="{Binding AddTarefa.Local}" Placeholder="Local" HorizontalOptions="FillAndExpand"/>
+            <Entry Text="{Binding Nome}" Placeholder="Nome" HorizontalOptions="FillAndExpand"/>
+            <Entry Text="{Binding Local}" Placeholder="Local" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
-        <Entry Text="{Binding AddTarefa.Descricao}" Placeholder="Descrição" HorizontalOptions="FillAndExpand"/>
-        <DatePicker HorizontalOptions="FillAndExpand" BindingContext="{Binding AddTarefa.Data}"/>
+        <Entry Text="{Binding Descricao}" Placeholder="Descrição" HorizontalOptions="FillAndExpand"/>
+        <DatePicker HorizontalOptions="FillAndExpand" BindingContext="{Binding Data}"/>
         <Button Text="Adicionar" HorizontalOptions="FillAndExpand" Command="{Binding AddTarefaCommand}"/>
     </StackLayout>
 

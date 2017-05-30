@@ -31,7 +31,7 @@ namespace Maratona.Services
             };
             Usuario.Nome = "Guilherme";
             Usuario.Sobrenome = "Camargo";
-            Usuario.NomeCompleto = "Guilherme Camargo";
+            Usuario.NomeCompleto = "Gui Silva";
             Usuario.Email = "guisfits@hotmail.com";
             Usuario.Nascimento = "23/12/1993";
             Usuario.Sexo = "Masculino";

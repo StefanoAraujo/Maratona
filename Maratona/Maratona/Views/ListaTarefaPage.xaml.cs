@@ -17,28 +17,13 @@ namespace Maratona.Views
         public ListaTarefaPage(List<Tarefa> tarefas)
         {
             InitializeComponent();
-            BindingContext = new ListaTarefasViewModel(tarefas);
+            BindingContext = new ListaTarefasViewModel(this.Navigation, tarefas);
 
-            lvwTarefas.ItemSelected += async (sender, e) =>
+            lvwTarefas.ItemTapped += async (sender, e) =>
             {
-                var detalheTarefa = e.SelectedItem as Tarefa;
-                await this.Navigation.PushAsync(new DetalheTarefaPage(ref detalheTarefa));
+                var detalheTarefa = e.Item as Tarefa;
+                await this.Navigation.PushAsync(new DetalheTarefaPage(detalheTarefa));
             };
-        }
-
-        private void OnLupaClicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OnEditClicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OnDeleteClicked(object sender, EventArgs e)
-        {
-
         }
     }
 }

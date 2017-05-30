@@ -50,6 +50,7 @@
     <Compile Include="ViewModels\ListaTarefasViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\NovaTarefaViewModel.cs" />
     <Compile Include="Views\DetalheTarefaPage.xaml.cs">
       <DependentUpon>DetalheTarefaPage.xaml</DependentUpon>
     </Compile>

@@ -51,7 +51,6 @@ namespace Maratona.Services
             {
                 Settings.AuthToken = user.MobileServiceAuthenticationToken;
                 Settings.UserId = user.UserId;
-
                 return true;
             }
         }

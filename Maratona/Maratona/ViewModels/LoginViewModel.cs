@@ -2,11 +2,7 @@
 using Maratona.Models;
 using Maratona.Services;
 using Maratona.Views;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Maratona.ViewModels
@@ -35,12 +31,24 @@ namespace Maratona.ViewModels
             var user = UsuarioService.ClaimsParaUsuario(facebookUser);
 
             await _navigation.PushAsync(new MainPage(user));
+
+            RemoveLoginPage();
         }
 
         async void ExecuteEntrarCommand()
         {
             Usuario usuario = UsuarioService.NovoUsuario();
             await _navigation.PushAsync(new MainPage(usuario));
+        }
+
+        void RemoveLoginPage()
+        {
+            var stackNavigation = _navigation.NavigationStack.ToList();
+            foreach(var page in stackNavigation)
+            {
+                if (page.GetType() == typeof(LoginPage))
+                    _navigation.RemovePage(page);
+            }
         }
     }
 }
