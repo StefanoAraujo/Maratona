@@ -28,18 +28,17 @@ namespace Maratona.ViewModels
         public NovaTarefaViewModel(INavigation navigation)
         {
             _navigation = navigation;
-            AddTarefaCommand = new Command(ExecuteAddTarefaCommand, CanExecuteAddTarefaCommand);
+            AddTarefaCommand = new Command(ExecuteAddTarefaCommand);
         }
 
         async void ExecuteAddTarefaCommand()
         {
-            await _navigation.PopAsync();
+            await _navigation.PopModalAsync();
         }
 
         bool CanExecuteAddTarefaCommand()
         {
-            if (string.IsNullOrWhiteSpace(Tarefa.Nome) || string.IsNullOrWhiteSpace(Tarefa.Descricao)
-                    || string.IsNullOrWhiteSpace(Tarefa.Local) || Tarefa.Data == null)
+            if ((string.IsNullOrWhiteSpace(_tarefa.Nome) || string.IsNullOrWhiteSpace(_tarefa.Descricao)) || (string.IsNullOrWhiteSpace(_tarefa.Local) || _tarefa.Data == null))
                 return false;
             else
                 return true;

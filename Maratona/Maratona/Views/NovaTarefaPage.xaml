@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Maratona.Views.NovaTarefaPage">
 
-    <StackLayout VerticalOptions="Start">
+    <StackLayout VerticalOptions="Start" Margin="10,0,10,0">
         <StackLayout Orientation="Horizontal">
             <Entry Text="{Binding Nome}" Placeholder="Nome" HorizontalOptions="FillAndExpand"/>
             <Entry Text="{Binding Local}" Placeholder="Local" HorizontalOptions="FillAndExpand"/>

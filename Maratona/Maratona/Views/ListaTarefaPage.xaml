@@ -4,7 +4,7 @@
              x:Class="Maratona.Views.ListaTarefaPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="icon.png" Command="{Binding AddTarefaCommand}"></ToolbarItem>
+        <ToolbarItem Icon="plus.png" Command="{Binding AddTarefaCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
     
     

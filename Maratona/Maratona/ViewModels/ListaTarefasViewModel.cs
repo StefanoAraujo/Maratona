@@ -39,8 +39,7 @@ namespace Maratona.ViewModels
 
         private async void ExecuteAddTarefaCommand(object obj)
         {
-            NovaTarefaPage novaTarefa = new NovaTarefaPage();
-            await _navigation.PushModalAsync(novaTarefa);
+            await _navigation.PushModalAsync(new NovaTarefaPage());
 
             //var tarefa = novaTarefa.
         }
