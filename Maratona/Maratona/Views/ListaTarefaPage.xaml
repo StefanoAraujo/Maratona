@@ -15,8 +15,8 @@
         <Button x:Name="btnAdd" Text="Adicionar" HorizontalOptions="FillAndExpand" Clicked="OnAddButtonClicked"/>
 
         <ListView x:Name="lvwTarefas" 
-              ItemsSource="{Binding ListaTarefas}" 
-              HasUnevenRows="True">
+                  ItemsSource="{Binding ListaTarefas}" 
+                  HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

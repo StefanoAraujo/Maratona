@@ -16,7 +16,7 @@ namespace Maratona.Services
 {
     public class AzureService
     {
-        static readonly string AppUrl = "http://healthtrackmobile.azurewebsites.net/";
+        public static readonly string AppUrl = "http://healthtrackmobile.azurewebsites.net/";
 
         public MobileServiceClient Client { get; set; }
         public static bool UseAuth { get; set; }

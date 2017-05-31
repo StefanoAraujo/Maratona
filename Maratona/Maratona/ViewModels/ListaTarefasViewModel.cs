@@ -27,6 +27,7 @@ namespace Maratona.ViewModels
             set => SetProperty(ref _novaTarefa, value);
         }
 
+        public Command RefreshCommand { get; set; }
         public Command EditarTarefaCommand { get; set; }
         public Command DeleteTarefaCommand { get; set; }
         public Command AddTarefaCommand { get; set; }
@@ -34,8 +35,11 @@ namespace Maratona.ViewModels
 
         public ListaTarefasViewModel(INavigation navigation, List<Tarefa> tarefas)
         {
+            _listaTarefas = new ObservableCollection<Tarefa>();
             _novaTarefa = new Tarefa();
             _navigation = navigation;
+
+            RefreshCommand = new Command(ExecuteRefreshCommand);
             EditarButtonTarefaCommand = new Command(ExecuteEditarButtonTarefaCommand);
             EditarTarefaCommand = new Command(ExecuteEditarTarefaCommand);
             DeleteTarefaCommand = new Command(ExecuteDeleteTarefaCommand);
@@ -77,15 +81,15 @@ namespace Maratona.ViewModels
             var tarefa = ListaTarefas.FirstOrDefault(c => c.Id == IndexOfNovaTarefa);
             var i = ListaTarefas.IndexOf(tarefa);
             ListaTarefas[i] = NovaTarefa;
-
-            NovaTarefa.Nome = string.Empty;
-            NovaTarefa.Descricao = string.Empty;
-            NovaTarefa.Local = string.Empty;
-            NovaTarefa.Data = DateTime.Now;
-            AddTarefaCommand.ChangeCanExecute();
-            IndexOfNovaTarefa = 0;
+            _novaTarefa = NovaTarefa = null;
+            _novaTarefa = new Tarefa();
         }
 
-
+        void ExecuteRefreshCommand()
+        {
+            ObservableCollection<Tarefa> lista = _listaTarefas;
+            _listaTarefas = null;
+            ListaTarefas = lista;
+        }
     }
 }

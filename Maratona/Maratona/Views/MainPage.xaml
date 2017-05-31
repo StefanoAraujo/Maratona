@@ -16,7 +16,8 @@
                     FontSize="Large"/>
 
             <Image Source="{Binding User.ImagemSource}"
-                   WidthRequest="200"/>
+                   WidthRequest="200"
+                   HeightRequest="200"/>
             <Label Text="{Binding User.NomeCompleto}"
                    Style="{StaticResource DefaultLabel}"/>
             <Label Text="{Binding User.Email}"

@@ -16,22 +16,23 @@ namespace Maratona.Views
         public ListaTarefaPage(List<Tarefa> tarefas)
         {
             InitializeComponent();
-            BindingContext = new ListaTarefasViewModel(this.Navigation, tarefas);
+            var ViewModelBinding = new ListaTarefasViewModel(this.Navigation, tarefas);
+            BindingContext = ViewModelBinding;
 
             lvwTarefas.ItemSelected += async (sender, e) =>
             {
-                var detalheTarefa = e.SelectedItem as Tarefa;
-                await this.Navigation.PushModalAsync(new DetalheTarefaPage(detalheTarefa));
+                if (e.SelectedItem != null)
+                {
+                    var detalheTarefa = e.SelectedItem as Tarefa;
+                    await this.Navigation.PushModalAsync(new DetalheTarefaPage(detalheTarefa));
+                    ((ListView)sender).SelectedItem = null;
+                }
             };
         }
 
         private void OnAddButtonClicked(object sender, EventArgs e)
         {
             ViewModel.AddTarefaCommand.Execute(null);
-            etyNome.Text = "";
-            etyLocal.Text = "";
-            etyDescricao.Text = "";
-            dtData.Date = DateTime.Now;
         }
 
         private void OnEditarClicked(object sender, EventArgs e)
@@ -46,11 +47,6 @@ namespace Maratona.Views
             ViewModel.EditarButtonTarefaCommand.Execute(null);
             btnAdd.IsVisible = true;
             btnEdit.IsVisible = false;
-
-            etyNome.Text = "";
-            etyLocal.Text = "";
-            etyDescricao.Text = "";
-            dtData.Date = DateTime.Now;
         }
 
         private void OnDeletarClicked(object sender, EventArgs e)
