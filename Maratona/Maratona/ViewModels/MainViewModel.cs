@@ -10,8 +10,6 @@ namespace Maratona.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        private INavigation _navigation;
-
         private Usuario _user;
         public Usuario User
         {
@@ -19,7 +17,9 @@ namespace Maratona.ViewModels
             set => SetProperty(ref _user, value);
         }
 
+        private INavigation _navigation;
         public Command MinhasTarefasCommand { get; set; }
+        public Command LogoutCommand { get; set; }
 
         public MainViewModel(INavigation navigation, Usuario usuario)
         {
@@ -28,11 +28,17 @@ namespace Maratona.ViewModels
 
             _navigation = navigation;
             MinhasTarefasCommand = new Command(ExecuteMinhasTarefasCommand);
+            LogoutCommand = new Command(ExecuteLogoutCommand);
         }
 
         private async void ExecuteMinhasTarefasCommand()
         {
             await _navigation.PushAsync(new ListaTarefaPage(User.Tarefas));
+        }
+
+        void ExecuteLogoutCommand()
+        {
+            AzureService.LogoutAsync(this._navigation);
         }
     }
 }

@@ -1,32 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Minhas Tarefas"
              x:Class="Maratona.Views.ListaTarefaPage">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="plus.png" Command="{Binding AddTarefaCommand}"></ToolbarItem>
-    </ContentPage.ToolbarItems>
-    
-    
-    <ListView x:Name="lvwTarefas" 
+    <StackLayout VerticalOptions="Start" Margin="10,0,10,0">
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="etyNome" Text="{Binding NovaTarefa.Nome}" Placeholder="Nome" HorizontalOptions="FillAndExpand"/>
+            <Entry x:Name="etyLocal" Text="{Binding NovaTarefa.Local}" Placeholder="Local" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <Entry x:Name="etyDescricao" Text="{Binding NovaTarefa.Descricao}" Placeholder="Descrição" HorizontalOptions="FillAndExpand"/>
+        <DatePicker x:Name="dtData" HorizontalOptions="FillAndExpand" BindingContext="{Binding NovaTarefa.Data}"/>
+        <Button x:Name="btnEdit" Text="Editar" BackgroundColor="Crimson" HorizontalOptions="FillAndExpand" Clicked="OnEditButtonClicked" IsVisible="False" />
+        <Button x:Name="btnAdd" Text="Adicionar" HorizontalOptions="FillAndExpand" Clicked="OnAddButtonClicked"/>
+
+        <ListView x:Name="lvwTarefas" 
               ItemsSource="{Binding ListaTarefas}" 
               HasUnevenRows="True">
-
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    
-                    <StackLayout Orientation="Horizontal" Margin="10">
-                        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="OnEditarClicked" CommandParameter="{Binding EditarTarefaCommand}" Icon="pencil.png" />
+                            <MenuItem Clicked="OnDeletarClicked" CommandParameter="{Binding DeleteTarefaCommand}" Icon="delete.png"  IsDestructive="True" />
+                        </ViewCell.ContextActions>
+                        <StackLayout Margin="10" Spacing="5">
                             <Label Text="{Binding Nome}" FontSize="Medium" TextColor="Black"/>
                             <Label Text="{Binding Descricao}" FontSize="Small" TextColor="Gray"/>
                         </StackLayout>
-                        <Button Image="delete.png" WidthRequest="50" Command="{Binding ExecuteDeleteTarefaCommand}"/>
-                    </StackLayout>
-                    
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-
-    </ListView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
 </ContentPage>

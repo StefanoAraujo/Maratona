@@ -11,7 +11,6 @@ namespace Maratona.Views
         public DetalheTarefaPage(Tarefa detalheTarefa)
         {
             InitializeComponent();
-            var btn = new Button();
             BindingContext = detalheTarefa;
         }
     }

@@ -16,8 +16,9 @@
                Style="{StaticResource DefaultLabel}"/>
         <Label Text="{Binding Local}" 
                Style="{StaticResource DefaultLabel}"/>
-        <Label Text="{Binding Data, StringFormat='dd/MM/yyyy'}" 
-               Style="{StaticResource DefaultLabel}"/>
+        <DatePicker BindingContext="{Binding Data}" 
+                    HorizontalOptions="Center"
+                    IsEnabled="False"/>
     </StackLayout>
     
 </ContentPage>

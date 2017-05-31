@@ -1,4 +1,5 @@
 ﻿using Maratona.Models;
+using Maratona.Services;
 using Maratona.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,6 @@ namespace Maratona.Views
         {
             InitializeComponent();
             BindingContext = new MainViewModel(this.Navigation, usuario);
-
-
         }
     }
 }

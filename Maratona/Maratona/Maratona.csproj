@@ -51,7 +51,6 @@
     <Compile Include="ViewModels\ListaTarefasViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\NovaTarefaViewModel.cs" />
     <Compile Include="Views\DetalheTarefaPage.xaml.cs">
       <DependentUpon>DetalheTarefaPage.xaml</DependentUpon>
     </Compile>
@@ -63,9 +62,6 @@
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NovaTarefaPage.xaml.cs">
-      <DependentUpon>NovaTarefaPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -130,12 +126,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\DetalheTarefaPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\NovaTarefaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

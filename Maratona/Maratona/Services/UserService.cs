@@ -58,11 +58,8 @@ namespace Maratona.Services
 
             var tarefas = new List<Tarefa>()
             {
-                new Tarefa() { Nome = "Prova", Descricao="Hackaton", Local="FIAP", Data = new System.DateTime(2017,07,01)},
-                new Tarefa() { Nome = "Exame", Descricao="Sangue", Local="Posto de saúde", Data = new System.DateTime(2017,06,14)},
-                new Tarefa() { Nome = "Consulta", Descricao="Volta ao médico", Local="Clínica", Data = new System.DateTime(2017,06,30)},
-                new Tarefa() { Nome = "Viagem", Descricao="Ferias", Local="Praia", Data = new System.DateTime(2017,12,01)},
-                new Tarefa() { Nome = "Aniversario", Descricao="Aniversario", Local="Casa", Data = new System.DateTime(2017,12,23)},
+                new Tarefa() { Id = 1, Nome = "Prova", Descricao="Hackaton", Local="FIAP", Data = new System.DateTime(2017,07,01)},
+                new Tarefa() { Id = 2, Nome = "Exame", Descricao="Sangue", Local="Posto de saúde", Data = new System.DateTime(2017,06,14)},
             };
             foreach(var tarefa in tarefas)
                 Usuario.Tarefas.Add(tarefa);
